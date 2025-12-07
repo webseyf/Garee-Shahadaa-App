@@ -1,0 +1,414 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../auth/firebase_auth/auth_util.dart';
+
+import '../flutter_flow/flutter_flow_util.dart';
+import 'schema/util/firestore_util.dart';
+
+import 'schema/chats_record.dart';
+import 'schema/user_record.dart';
+import 'schema/feeds_record.dart';
+import 'schema/posts_record.dart';
+import 'schema/commentsfeed_record.dart';
+import 'schema/audioscollection_record.dart';
+
+export 'dart:async' show StreamSubscription;
+export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
+export 'package:firebase_core/firebase_core.dart';
+export 'schema/index.dart';
+export 'schema/util/firestore_util.dart';
+export 'schema/util/schema_util.dart';
+
+export 'schema/chats_record.dart';
+export 'schema/user_record.dart';
+export 'schema/feeds_record.dart';
+export 'schema/posts_record.dart';
+export 'schema/commentsfeed_record.dart';
+export 'schema/audioscollection_record.dart';
+
+/// Functions to query ChatsRecords (as a Stream and as a Future).
+Future<int> queryChatsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ChatsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ChatsRecord>> queryChatsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ChatsRecord.collection,
+      ChatsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ChatsRecord>> queryChatsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ChatsRecord.collection,
+      ChatsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query UserRecords (as a Stream and as a Future).
+Future<int> queryUserRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      UserRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<UserRecord>> queryUserRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      UserRecord.collection,
+      UserRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<UserRecord>> queryUserRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      UserRecord.collection,
+      UserRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query FeedsRecords (as a Stream and as a Future).
+Future<int> queryFeedsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      FeedsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<FeedsRecord>> queryFeedsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      FeedsRecord.collection,
+      FeedsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<FeedsRecord>> queryFeedsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      FeedsRecord.collection,
+      FeedsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query PostsRecords (as a Stream and as a Future).
+Future<int> queryPostsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      PostsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<PostsRecord>> queryPostsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      PostsRecord.collection,
+      PostsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<PostsRecord>> queryPostsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      PostsRecord.collection,
+      PostsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query CommentsfeedRecords (as a Stream and as a Future).
+Future<int> queryCommentsfeedRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CommentsfeedRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CommentsfeedRecord>> queryCommentsfeedRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      CommentsfeedRecord.collection,
+      CommentsfeedRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<CommentsfeedRecord>> queryCommentsfeedRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      CommentsfeedRecord.collection,
+      CommentsfeedRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query AudioscollectionRecords (as a Stream and as a Future).
+Future<int> queryAudioscollectionRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      AudioscollectionRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<AudioscollectionRecord>> queryAudioscollectionRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      AudioscollectionRecord.collection,
+      AudioscollectionRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<AudioscollectionRecord>> queryAudioscollectionRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      AudioscollectionRecord.collection,
+      AudioscollectionRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<int> queryCollectionCount(
+  Query collection, {
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) {
+  final builder = queryBuilder ?? (q) => q;
+  var query = builder(collection);
+  if (limit > 0) {
+    query = query.limit(limit);
+  }
+
+  return query.count().get().catchError((err) {
+    print('Error querying $collection: $err');
+  }).then((value) => value.count!);
+}
+
+Stream<List<T>> queryCollection<T>(
+  Query collection,
+  RecordBuilder<T> recordBuilder, {
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) {
+  final builder = queryBuilder ?? (q) => q;
+  var query = builder(collection);
+  if (limit > 0 || singleRecord) {
+    query = query.limit(singleRecord ? 1 : limit);
+  }
+  return query.snapshots().handleError((err) {
+    print('Error querying $collection: $err');
+  }).map((s) => s.docs
+      .map(
+        (d) => safeGet(
+          () => recordBuilder(d),
+          (e) => print('Error serializing doc ${d.reference.path}:\n$e'),
+        ),
+      )
+      .where((d) => d != null)
+      .map((d) => d!)
+      .toList());
+}
+
+Future<List<T>> queryCollectionOnce<T>(
+  Query collection,
+  RecordBuilder<T> recordBuilder, {
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) {
+  final builder = queryBuilder ?? (q) => q;
+  var query = builder(collection);
+  if (limit > 0 || singleRecord) {
+    query = query.limit(singleRecord ? 1 : limit);
+  }
+  return query.get().then((s) => s.docs
+      .map(
+        (d) => safeGet(
+          () => recordBuilder(d),
+          (e) => print('Error serializing doc ${d.reference.path}:\n$e'),
+        ),
+      )
+      .where((d) => d != null)
+      .map((d) => d!)
+      .toList());
+}
+
+Filter filterIn(String field, List? list) => (list?.isEmpty ?? true)
+    ? Filter(field, whereIn: null)
+    : Filter(field, whereIn: list);
+
+Filter filterArrayContainsAny(String field, List? list) =>
+    (list?.isEmpty ?? true)
+        ? Filter(field, arrayContainsAny: null)
+        : Filter(field, arrayContainsAny: list);
+
+extension QueryExtension on Query {
+  Query whereIn(String field, List? list) => (list?.isEmpty ?? true)
+      ? where(field, whereIn: null)
+      : where(field, whereIn: list);
+
+  Query whereNotIn(String field, List? list) => (list?.isEmpty ?? true)
+      ? where(field, whereNotIn: null)
+      : where(field, whereNotIn: list);
+
+  Query whereArrayContainsAny(String field, List? list) =>
+      (list?.isEmpty ?? true)
+          ? where(field, arrayContainsAny: null)
+          : where(field, arrayContainsAny: list);
+}
+
+class FFFirestorePage<T> {
+  final List<T> data;
+  final Stream<List<T>>? dataStream;
+  final QueryDocumentSnapshot? nextPageMarker;
+
+  FFFirestorePage(this.data, this.dataStream, this.nextPageMarker);
+}
+
+Future<FFFirestorePage<T>> queryCollectionPage<T>(
+  Query collection,
+  RecordBuilder<T> recordBuilder, {
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) async {
+  final builder = queryBuilder ?? (q) => q;
+  var query = builder(collection).limit(pageSize);
+  if (nextPageMarker != null) {
+    query = query.startAfterDocument(nextPageMarker);
+  }
+  Stream<QuerySnapshot>? docSnapshotStream;
+  QuerySnapshot docSnapshot;
+  if (isStream) {
+    docSnapshotStream = query.snapshots();
+    docSnapshot = await docSnapshotStream.first;
+  } else {
+    docSnapshot = await query.get();
+  }
+  final getDocs = (QuerySnapshot s) => s.docs
+      .map(
+        (d) => safeGet(
+          () => recordBuilder(d),
+          (e) => print('Error serializing doc ${d.reference.path}:\n$e'),
+        ),
+      )
+      .where((d) => d != null)
+      .map((d) => d!)
+      .toList();
+  final data = getDocs(docSnapshot);
+  final dataStream = docSnapshotStream?.map(getDocs);
+  final nextPageToken = docSnapshot.docs.isEmpty ? null : docSnapshot.docs.last;
+  return FFFirestorePage(data, dataStream, nextPageToken);
+}
+
+// Creates a Firestore document representing the logged in user if it doesn't yet exist
+Future maybeCreateUser(User user) async {
+  final userRecord = UserRecord.collection.doc(user.uid);
+  final userExists = await userRecord.get().then((u) => u.exists);
+  if (userExists) {
+    currentUserDocument = await UserRecord.getDocumentOnce(userRecord);
+    return;
+  }
+
+  final userData = createUserRecordData(
+    email: user.email ??
+        FirebaseAuth.instance.currentUser?.email ??
+        user.providerData.firstOrNull?.email,
+    displayName:
+        user.displayName ?? FirebaseAuth.instance.currentUser?.displayName,
+    photoUrl: user.photoURL,
+    uid: user.uid,
+    phoneNumber: user.phoneNumber,
+    createdTime: getCurrentTimestamp,
+  );
+
+  await userRecord.set(userData);
+  currentUserDocument = UserRecord.getDocumentFromData(userData, userRecord);
+}
+
+Future updateUserDocument({String? email}) async {
+  await currentUserDocument?.reference
+      .update(createUserRecordData(email: email));
+}

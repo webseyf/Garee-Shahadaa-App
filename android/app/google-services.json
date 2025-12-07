@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "1020289403615",
+    "project_id": "garee-shahadaa",
+    "storage_bucket": "garee-shahadaa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020289403615:android:6bad60a32cd48e9948376a",
+        "android_client_info": {
+          "package_name": "gareeshahada.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020289403615-ajdv5a0eop8v59vojquq0776pb9k98pf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gareeshahada.com",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1020289403615-5hg9hircuhimcm65jmkcqb6gru4qq5cq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9jdLy0m1JA7iWBB7DZNDNJyL9R8Ke34M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020289403615-5hg9hircuhimcm65jmkcqb6gru4qq5cq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1020289403615-ff9i6k80k0ihp4mr2ntb70olqlj6dl81.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "gareeshahadaa.com"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020289403615:android:5a1122c4ba5ce50a48376a",
+        "android_client_info": {
+          "package_name": "gareeshahadaa.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020289403615-opdrrmrbj5fmnsb0ohgfq6rockftm68e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gareeshahadaa.com",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1020289403615-5hg9hircuhimcm65jmkcqb6gru4qq5cq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9jdLy0m1JA7iWBB7DZNDNJyL9R8Ke34M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020289403615-5hg9hircuhimcm65jmkcqb6gru4qq5cq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1020289403615-ff9i6k80k0ihp4mr2ntb70olqlj6dl81.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "gareeshahadaa.com"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
