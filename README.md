@@ -1,5 +1,6 @@
 # Garee Shahada
-
+### check out website version at https://gareeshahaadaa.flutterflow.app/
+### app on playstore https://play.google.com/store/apps/details?id=gareeshahada.com&pcampaignid=web_share
 Garee Shahada is a mobile app built using **FlutterFlow** and **Flutter**, designed to deliver audio content and a smooth user experience with deep linking support.  
 
 ---
