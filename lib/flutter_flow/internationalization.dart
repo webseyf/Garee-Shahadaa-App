@@ -1085,6 +1085,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tr': 'Gönderiyi Paylaş',
     },
   },
+  // empty_message
+  {
+    '1rxbgzef': {
+      'en':
+          'You didn\'t connected wit\nur friends Click on + icon at \ntop and serch for ur friend',
+      'am': '',
+      'ar': '',
+      'tr': '',
+    },
+  },
   // deleteAccount
   {
     'hq923081': {
@@ -1298,18 +1308,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Miscellaneous
   {
-    '5wajhq5p': {
-      'en': '',
-      'am': '',
-      'ar': '',
-      'tr': '',
-    },
-    'ebv7wgq3': {
-      'en': '',
-      'am': '',
-      'ar': '',
-      'tr': '',
-    },
     'no9si425': {
       'en': '',
       'am': '',

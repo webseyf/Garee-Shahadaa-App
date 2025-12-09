@@ -150,292 +150,303 @@ class _PostlistsWidgetState extends State<PostlistsWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView(
-            primary: false,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Align(
+          child: Stack(
+            children: [
+              Align(
+                alignment: AlignmentDirectional(0.0, -1.0),
+                child: Container(
+                  constraints: BoxConstraints(
+                    maxHeight: 65.0,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Color(0x00FFFFFF),
+                  ),
                   alignment: AlignmentDirectional(0.0, -1.0),
-                  child: Container(
-                    constraints: BoxConstraints(
-                      maxHeight: 75.0,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Color(0x00FFFFFF),
-                    ),
-                    alignment: AlignmentDirectional(0.0, -1.0),
-                    child: FlutterFlowAdBanner(
-                      showsTestAd: false,
-                      androidAdUnitID: 'ca-app-pub-3940256099942544/9214589741',
-                    ),
+                  child: FlutterFlowAdBanner(
+                    showsTestAd: false,
+                    androidAdUnitID: 'ca-app-pub-3940256099942544/9214589741',
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
-                  child: StreamBuilder<List<PostsRecord>>(
-                    stream: _model.jyjh(
-                      requestFn: () => queryPostsRecord(
-                        queryBuilder: (postsRecord) => postsRecord
-                            .orderBy('time_posted', descending: true),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 0.0, 0.0),
+                child: Container(
+                  height: double.infinity,
+                  decoration: BoxDecoration(),
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                    child: StreamBuilder<List<PostsRecord>>(
+                      stream: _model.jyjh(
+                        requestFn: () => queryPostsRecord(
+                          queryBuilder: (postsRecord) => postsRecord
+                              .orderBy('time_posted', descending: true),
+                        ),
                       ),
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 20.0,
-                            height: 20.0,
-                            child: SpinKitWanderingCubes(
-                              color: FlutterFlowTheme.of(context).primary,
-                              size: 20.0,
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 20.0,
+                              height: 20.0,
+                              child: SpinKitWanderingCubes(
+                                color: FlutterFlowTheme.of(context).primary,
+                                size: 20.0,
+                              ),
                             ),
-                          ),
-                        );
-                      }
-                      List<PostsRecord> listViewPostsRecordList =
-                          snapshot.data!;
+                          );
+                        }
+                        List<PostsRecord> listViewPostsRecordList =
+                            snapshot.data!;
 
-                      return ListView.separated(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewPostsRecordList.length,
-                        separatorBuilder: (_, __) => SizedBox(height: 6.0),
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewPostsRecord =
-                              listViewPostsRecordList[listViewIndex];
-                          return Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 3.0, 5.0, 3.0),
-                              child: StreamBuilder<UserRecord>(
-                                stream: UserRecord.getDocument(
-                                    listViewPostsRecord.postUser!),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 20.0,
-                                        height: 20.0,
-                                        child: SpinKitWanderingCubes(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          size: 20.0,
+                        return ListView.separated(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: listViewPostsRecordList.length,
+                          separatorBuilder: (_, __) => SizedBox(height: 6.0),
+                          itemBuilder: (context, listViewIndex) {
+                            final listViewPostsRecord =
+                                listViewPostsRecordList[listViewIndex];
+                            return Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 3.0, 5.0, 3.0),
+                                child: StreamBuilder<UserRecord>(
+                                  stream: UserRecord.getDocument(
+                                      listViewPostsRecord.postUser!),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 20.0,
+                                          height: 20.0,
+                                          child: SpinKitWanderingCubes(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            size: 20.0,
+                                          ),
+                                        ),
+                                      );
+                                    }
+
+                                    final containerUserRecord = snapshot.data!;
+
+                                    return Container(
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: Color(0x17B6CBFC),
+                                          width: 1.0,
                                         ),
                                       ),
-                                    );
-                                  }
-
-                                  final containerUserRecord = snapshot.data!;
-
-                                  return Container(
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      border: Border.all(
-                                        color: Color(0x17B6CBFC),
-                                        width: 1.0,
-                                      ),
-                                    ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 12.0, 10.0, 13.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 12.0, 10.0, 13.0),
+                                        child: SingleChildScrollView(
+                                          primary: false,
+                                          child: Column(
                                             mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
-                                              Container(
-                                                width: 48.0,
-                                                height: 48.0,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Image.asset(
-                                                  'assets/images/dreamina-2025-10-29-4668-generate_avater_which_is_human_and_use_t..._(1).jpeg',
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                              Expanded(
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        _model.users1 =
-                                                            await queryChatsRecordOnce(
-                                                          queryBuilder:
-                                                              (chatsRecord) =>
-                                                                  chatsRecord
-                                                                      .where(
-                                                            'user',
-                                                            arrayContains:
-                                                                currentUserReference,
-                                                          ),
-                                                        );
-                                                        if (_model.users1!
-                                                                .where((e) => functions.checkUsers(
-                                                                    currentUserReference!,
-                                                                    containerUserRecord
-                                                                        .reference,
-                                                                    e.user
-                                                                        .toList()))
-                                                                .toList()
-                                                                .length >
-                                                            0) {
-                                                          context.pushNamed(
-                                                            ChatWidget
-                                                                .routeName,
-                                                            queryParameters: {
-                                                              'chatRef':
-                                                                  serializeParam(
-                                                                _model.users1
-                                                                    ?.where((e) => functions.checkUsers(
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Container(
+                                                    width: 48.0,
+                                                    height: 48.0,
+                                                    clipBehavior:
+                                                        Clip.antiAlias,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Image.asset(
+                                                      'assets/images/dreamina-2025-10-29-4668-generate_avater_which_is_human_and_use_t..._(1).jpeg',
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                  Expanded(
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            _model.users1 =
+                                                                await queryChatsRecordOnce(
+                                                              queryBuilder:
+                                                                  (chatsRecord) =>
+                                                                      chatsRecord
+                                                                          .where(
+                                                                'user',
+                                                                arrayContains:
+                                                                    currentUserReference,
+                                                              ),
+                                                            );
+                                                            if (_model.users1!
+                                                                    .where((e) => functions.checkUsers(
                                                                         currentUserReference!,
                                                                         containerUserRecord
                                                                             .reference,
                                                                         e.user
                                                                             .toList()))
                                                                     .toList()
-                                                                    .firstOrNull
-                                                                    ?.reference,
-                                                                ParamType
-                                                                    .DocumentReference,
-                                                              ),
-                                                            }.withoutNulls,
-                                                          );
-                                                        } else {
-                                                          var chatsRecordReference =
-                                                              ChatsRecord
-                                                                  .collection
-                                                                  .doc();
-                                                          await chatsRecordReference
-                                                              .set({
-                                                            ...createChatsRecordData(
-                                                              lastMessage:
-                                                                  'Hello',
-                                                              lastMessageTime:
-                                                                  getCurrentTimestamp,
-                                                            ),
-                                                            ...mapToFirestore(
-                                                              {
-                                                                'user': functions.usersList(
-                                                                    containerUserRecord
-                                                                        .reference,
-                                                                    currentUserReference!),
-                                                                'messagesList':
-                                                                    [
-                                                                  getMessageModelFirestoreData(
-                                                                    updateMessageModelStruct(
-                                                                      MessageModelStruct(
-                                                                        message:
-                                                                            'Hello',
-                                                                        seenBy:
-                                                                            currentUserReference,
-                                                                        sendedAt:
-                                                                            getCurrentTimestamp,
-                                                                        sendedBy:
-                                                                            currentUserReference,
-                                                                      ),
-                                                                      clearUnsetFields:
-                                                                          false,
-                                                                      create:
-                                                                          true,
-                                                                    ),
-                                                                    true,
-                                                                  )
-                                                                ],
-                                                              },
-                                                            ),
-                                                          });
-                                                          _model.newChats1 =
-                                                              ChatsRecord
-                                                                  .getDocumentFromData({
-                                                            ...createChatsRecordData(
-                                                              lastMessage:
-                                                                  'Hello',
-                                                              lastMessageTime:
-                                                                  getCurrentTimestamp,
-                                                            ),
-                                                            ...mapToFirestore(
-                                                              {
-                                                                'user': functions.usersList(
-                                                                    containerUserRecord
-                                                                        .reference,
-                                                                    currentUserReference!),
-                                                                'messagesList':
-                                                                    [
-                                                                  getMessageModelFirestoreData(
-                                                                    updateMessageModelStruct(
-                                                                      MessageModelStruct(
-                                                                        message:
-                                                                            'Hello',
-                                                                        seenBy:
-                                                                            currentUserReference,
-                                                                        sendedAt:
-                                                                            getCurrentTimestamp,
-                                                                        sendedBy:
-                                                                            currentUserReference,
-                                                                      ),
-                                                                      clearUnsetFields:
-                                                                          false,
-                                                                      create:
-                                                                          true,
-                                                                    ),
-                                                                    true,
-                                                                  )
-                                                                ],
-                                                              },
-                                                            ),
-                                                          }, chatsRecordReference);
+                                                                    .length >
+                                                                0) {
+                                                              context.pushNamed(
+                                                                ChatWidget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'chatRef':
+                                                                      serializeParam(
+                                                                    _model
+                                                                        .users1
+                                                                        ?.where((e) => functions.checkUsers(
+                                                                            currentUserReference!,
+                                                                            containerUserRecord.reference,
+                                                                            e.user.toList()))
+                                                                        .toList()
+                                                                        .firstOrNull
+                                                                        ?.reference,
+                                                                    ParamType
+                                                                        .DocumentReference,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            } else {
+                                                              var chatsRecordReference =
+                                                                  ChatsRecord
+                                                                      .collection
+                                                                      .doc();
+                                                              await chatsRecordReference
+                                                                  .set({
+                                                                ...createChatsRecordData(
+                                                                  lastMessage:
+                                                                      'Hello',
+                                                                  lastMessageTime:
+                                                                      getCurrentTimestamp,
+                                                                ),
+                                                                ...mapToFirestore(
+                                                                  {
+                                                                    'user': functions.usersList(
+                                                                        containerUserRecord
+                                                                            .reference,
+                                                                        currentUserReference!),
+                                                                    'messagesList':
+                                                                        [
+                                                                      getMessageModelFirestoreData(
+                                                                        updateMessageModelStruct(
+                                                                          MessageModelStruct(
+                                                                            message:
+                                                                                'Hello',
+                                                                            seenBy:
+                                                                                currentUserReference,
+                                                                            sendedAt:
+                                                                                getCurrentTimestamp,
+                                                                            sendedBy:
+                                                                                currentUserReference,
+                                                                          ),
+                                                                          clearUnsetFields:
+                                                                              false,
+                                                                          create:
+                                                                              true,
+                                                                        ),
+                                                                        true,
+                                                                      )
+                                                                    ],
+                                                                  },
+                                                                ),
+                                                              });
+                                                              _model.newChats1 =
+                                                                  ChatsRecord
+                                                                      .getDocumentFromData({
+                                                                ...createChatsRecordData(
+                                                                  lastMessage:
+                                                                      'Hello',
+                                                                  lastMessageTime:
+                                                                      getCurrentTimestamp,
+                                                                ),
+                                                                ...mapToFirestore(
+                                                                  {
+                                                                    'user': functions.usersList(
+                                                                        containerUserRecord
+                                                                            .reference,
+                                                                        currentUserReference!),
+                                                                    'messagesList':
+                                                                        [
+                                                                      getMessageModelFirestoreData(
+                                                                        updateMessageModelStruct(
+                                                                          MessageModelStruct(
+                                                                            message:
+                                                                                'Hello',
+                                                                            seenBy:
+                                                                                currentUserReference,
+                                                                            sendedAt:
+                                                                                getCurrentTimestamp,
+                                                                            sendedBy:
+                                                                                currentUserReference,
+                                                                          ),
+                                                                          clearUnsetFields:
+                                                                              false,
+                                                                          create:
+                                                                              true,
+                                                                        ),
+                                                                        true,
+                                                                      )
+                                                                    ],
+                                                                  },
+                                                                ),
+                                                              }, chatsRecordReference);
 
-                                                          context.pushNamed(
-                                                            ChatWidget
-                                                                .routeName,
-                                                            queryParameters: {
-                                                              'chatRef':
-                                                                  serializeParam(
-                                                                _model.newChats1
-                                                                    ?.reference,
-                                                                ParamType
-                                                                    .DocumentReference,
-                                                              ),
-                                                            }.withoutNulls,
-                                                          );
-                                                        }
+                                                              context.pushNamed(
+                                                                ChatWidget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'chatRef':
+                                                                      serializeParam(
+                                                                    _model
+                                                                        .newChats1
+                                                                        ?.reference,
+                                                                    ParamType
+                                                                        .DocumentReference,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            }
 
-                                                        safeSetState(() {});
-                                                      },
-                                                      child: Text(
-                                                        valueOrDefault<String>(
-                                                          containerUserRecord
-                                                              .displayName,
-                                                          'Anonymous',
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                            safeSetState(() {});
+                                                          },
+                                                          child: Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              containerUserRecord
+                                                                  .displayName,
+                                                              'Anonymous',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .titleMedium
                                                                 .override(
                                                                   font: GoogleFonts
@@ -463,71 +474,73 @@ class _PostlistsWidgetState extends State<PostlistsWidget> {
                                                                       .titleMedium
                                                                       .fontStyle,
                                                                 ),
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              -1.0, 0.0),
-                                                      child: Text(
-                                                        valueOrDefault<String>(
-                                                          listViewPostsRecord
-                                                              .posttype,
-                                                          'General',
+                                                          ),
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .labelSmall
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .roboto(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmall
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .alternate,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  -1.0, 0.0),
+                                                          child: Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              listViewPostsRecord
+                                                                  .posttype,
+                                                              'General',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelSmall
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .roboto(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelSmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .alternate,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .labelSmall
                                                                       .fontStyle,
-                                                              lineHeight: 0.0,
-                                                            ),
-                                                      ),
+                                                                  lineHeight:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ].divide(SizedBox(
+                                                          height: 4.0)),
                                                     ),
-                                                  ].divide(
-                                                      SizedBox(height: 4.0)),
-                                                ),
+                                                  ),
+                                                ].divide(SizedBox(width: 12.0)),
                                               ),
-                                            ].divide(SizedBox(width: 12.0)),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 5.0, 0.0, 5.0),
-                                            child: SelectionArea(
-                                                child: Text(
-                                              listViewPostsRecord
-                                                  .postDescription
-                                                  .maybeHandleOverflow(
-                                                maxChars: 800,
-                                                replacement: '…',
-                                              ),
-                                              maxLines: 10,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 5.0, 0.0, 5.0),
+                                                child: SelectionArea(
+                                                    child: Text(
+                                                  listViewPostsRecord
+                                                      .postDescription
+                                                      .maybeHandleOverflow(
+                                                    maxChars: 800,
+                                                    replacement: '…',
+                                                  ),
+                                                  maxLines: 10,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyMedium
                                                       .override(
                                                         font: GoogleFonts.inter(
@@ -560,141 +573,241 @@ class _PostlistsWidgetState extends State<PostlistsWidget> {
                                                                 .fontStyle,
                                                         lineHeight: 1.4,
                                                       ),
-                                            )),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    3.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            await showModalBottomSheet(
-                                                              isScrollControlled:
-                                                                  true,
-                                                              backgroundColor:
+                                                )),
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        3.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
                                                                   Colors
                                                                       .transparent,
-                                                              enableDrag: false,
-                                                              context: context,
-                                                              builder:
-                                                                  (context) {
-                                                                return WebViewAware(
-                                                                  child:
-                                                                      GestureDetector(
-                                                                    onTap: () {
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus();
-                                                                      FocusManager
-                                                                          .instance
-                                                                          .primaryFocus
-                                                                          ?.unfocus();
-                                                                    },
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
+                                                              onTap: () async {
+                                                                await showModalBottomSheet(
+                                                                  isScrollControlled:
+                                                                      true,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  enableDrag:
+                                                                      false,
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (context) {
+                                                                    return WebViewAware(
                                                                       child:
-                                                                          CommentbottomsheetWidget(
-                                                                        commentparameter:
-                                                                            listViewPostsRecord,
+                                                                          GestureDetector(
+                                                                        onTap:
+                                                                            () {
+                                                                          FocusScope.of(context)
+                                                                              .unfocus();
+                                                                          FocusManager
+                                                                              .instance
+                                                                              .primaryFocus
+                                                                              ?.unfocus();
+                                                                        },
+                                                                        child:
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
+                                                                          child:
+                                                                              CommentbottomsheetWidget(
+                                                                            commentparameter:
+                                                                                listViewPostsRecord,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                ).then((value) =>
+                                                                    safeSetState(
+                                                                        () {}));
+                                                              },
+                                                              child: Icon(
+                                                                Icons
+                                                                    .insert_comment_outlined,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                                size: 25.0,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: StreamBuilder<
+                                                                List<
+                                                                    CommentsfeedRecord>>(
+                                                              stream:
+                                                                  queryCommentsfeedRecord(
+                                                                queryBuilder:
+                                                                    (commentsfeedRecord) =>
+                                                                        commentsfeedRecord
+                                                                            .where(
+                                                                  'posttype',
+                                                                  isEqualTo:
+                                                                      listViewPostsRecord
+                                                                          .reference,
+                                                                ),
+                                                              ),
+                                                              builder: (context,
+                                                                  snapshot) {
+                                                                // Customize what your widget looks like when it's loading.
+                                                                if (!snapshot
+                                                                    .hasData) {
+                                                                  return Center(
+                                                                    child:
+                                                                        SizedBox(
+                                                                      width:
+                                                                          20.0,
+                                                                      height:
+                                                                          20.0,
+                                                                      child:
+                                                                          SpinKitWanderingCubes(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        size:
+                                                                            20.0,
                                                                       ),
                                                                     ),
+                                                                  );
+                                                                }
+                                                                List<CommentsfeedRecord>
+                                                                    textCommentsfeedRecordList =
+                                                                    snapshot
+                                                                        .data!;
+
+                                                                return InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    await showModalBottomSheet(
+                                                                      isScrollControlled:
+                                                                          true,
+                                                                      backgroundColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      enableDrag:
+                                                                          false,
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (context) {
+                                                                        return WebViewAware(
+                                                                          child:
+                                                                              GestureDetector(
+                                                                            onTap:
+                                                                                () {
+                                                                              FocusScope.of(context).unfocus();
+                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                            },
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                              child: CommentbottomsheetWidget(
+                                                                                commentparameter: listViewPostsRecord,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    ).then((value) =>
+                                                                        safeSetState(
+                                                                            () {}));
+                                                                  },
+                                                                  child: Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      formatNumber(
+                                                                        textCommentsfeedRecordList
+                                                                            .length,
+                                                                        formatType:
+                                                                            FormatType.compact,
+                                                                      ),
+                                                                      '4',
+                                                                    ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .start,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.inter(
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).alternate,
+                                                                          fontSize:
+                                                                              20.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                   ),
                                                                 );
                                                               },
-                                                            ).then((value) =>
-                                                                safeSetState(
-                                                                    () {}));
-                                                          },
-                                                          child: Icon(
-                                                            Icons
-                                                                .insert_comment_outlined,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .alternate,
-                                                            size: 25.0,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: StreamBuilder<
-                                                            List<
-                                                                CommentsfeedRecord>>(
-                                                          stream:
-                                                              queryCommentsfeedRecord(
-                                                            queryBuilder:
-                                                                (commentsfeedRecord) =>
-                                                                    commentsfeedRecord
-                                                                        .where(
-                                                              'posttype',
-                                                              isEqualTo:
-                                                                  listViewPostsRecord
-                                                                      .reference,
                                                             ),
                                                           ),
-                                                          builder: (context,
-                                                              snapshot) {
-                                                            // Customize what your widget looks like when it's loading.
-                                                            if (!snapshot
-                                                                .hasData) {
-                                                              return Center(
-                                                                child: SizedBox(
-                                                                  width: 20.0,
-                                                                  height: 20.0,
-                                                                  child:
-                                                                      SpinKitWanderingCubes(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    size: 20.0,
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            }
-                                                            List<CommentsfeedRecord>
-                                                                textCommentsfeedRecordList =
-                                                                snapshot.data!;
-
-                                                            return InkWell(
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
                                                               focusColor: Colors
@@ -747,16 +860,10 @@ class _PostlistsWidgetState extends State<PostlistsWidget> {
                                                                         () {}));
                                                               },
                                                               child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  formatNumber(
-                                                                    textCommentsfeedRecordList
-                                                                        .length,
-                                                                    formatType:
-                                                                        FormatType
-                                                                            .compact,
-                                                                  ),
-                                                                  '4',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  '6r3uraym' /* Comments */,
                                                                 ),
                                                                 textAlign:
                                                                     TextAlign
@@ -767,8 +874,9 @@ class _PostlistsWidgetState extends State<PostlistsWidget> {
                                                                     .override(
                                                                       font: GoogleFonts
                                                                           .inter(
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
                                                                         fontStyle: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .fontStyle,
@@ -777,320 +885,223 @@ class _PostlistsWidgetState extends State<PostlistsWidget> {
                                                                               context)
                                                                           .alternate,
                                                                       fontSize:
-                                                                          20.0,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
                                                                       fontStyle: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
                                                                           .fontStyle,
                                                                     ),
                                                               ),
-                                                            );
-                                                          },
-                                                        ),
-                                                      ),
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            await showModalBottomSheet(
-                                                              isScrollControlled:
-                                                                  true,
-                                                              backgroundColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              enableDrag: false,
-                                                              context: context,
-                                                              builder:
-                                                                  (context) {
-                                                                return WebViewAware(
-                                                                  child:
-                                                                      GestureDetector(
-                                                                    onTap: () {
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus();
-                                                                      FocusManager
-                                                                          .instance
-                                                                          .primaryFocus
-                                                                          ?.unfocus();
-                                                                    },
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
-                                                                      child:
-                                                                          CommentbottomsheetWidget(
-                                                                        commentparameter:
-                                                                            listViewPostsRecord,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              },
-                                                            ).then((value) =>
-                                                                safeSetState(
-                                                                    () {}));
-                                                          },
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              '6r3uraym' /* Comments */,
                                                             ),
-                                                            textAlign:
-                                                                TextAlign.start,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font:
-                                                                      GoogleFonts
-                                                                          .inter(
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        5.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0),
+                                                            child: GradientText(
+                                                              dateTimeFormat(
+                                                                "relative",
+                                                                listViewPostsRecord
+                                                                    .timePosted!,
+                                                                locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageShortCode ??
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                              ).maybeHandleOverflow(
+                                                                maxChars: 10,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelSmall
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .outfit(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelSmall
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelSmall
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                    fontSize:
+                                                                        15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium
+                                                                        .labelSmall
                                                                         .fontWeight,
                                                                     fontStyle: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium
+                                                                        .labelSmall
                                                                         .fontStyle,
                                                                   ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    5.0,
-                                                                    0.0,
-                                                                    5.0,
-                                                                    0.0),
-                                                        child: GradientText(
-                                                          dateTimeFormat(
-                                                            "relative",
-                                                            listViewPostsRecord
-                                                                .timePosted!,
-                                                            locale: FFLocalizations.of(
+                                                              colors: [
+                                                                FlutterFlowTheme.of(
                                                                         context)
-                                                                    .languageShortCode ??
-                                                                FFLocalizations.of(
+                                                                    .primary,
+                                                                FlutterFlowTheme.of(
                                                                         context)
-                                                                    .languageCode,
-                                                          ).maybeHandleOverflow(
-                                                            maxChars: 10,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .labelSmall
-                                                              .override(
-                                                                font:
-                                                                    GoogleFonts
-                                                                        .outfit(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelSmall
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelSmall
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                fontSize: 15.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmall
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmall
-                                                                    .fontStyle,
-                                                              ),
-                                                          colors: [
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary
-                                                          ],
-                                                          gradientDirection:
-                                                              GradientDirection
-                                                                  .ltr,
-                                                          gradientType:
-                                                              GradientType
-                                                                  .linear,
-                                                        ),
-                                                      ),
-                                                    ].divide(
-                                                        SizedBox(width: 5.0)),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          -1.0, 0.0),
-                                                  child: FFButtonWidget(
-                                                    onPressed: () async {
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        enableDrag: false,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return WebViewAware(
-                                                            child:
-                                                                GestureDetector(
-                                                              onTap: () {
-                                                                FocusScope.of(
-                                                                        context)
-                                                                    .unfocus();
-                                                                FocusManager
-                                                                    .instance
-                                                                    .primaryFocus
-                                                                    ?.unfocus();
-                                                              },
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    CommentbottomsheetWidget(
-                                                                  commentparameter:
-                                                                      listViewPostsRecord,
-                                                                ),
-                                                              ),
+                                                                    .secondary
+                                                              ],
+                                                              gradientDirection:
+                                                                  GradientDirection
+                                                                      .ltr,
+                                                              gradientType:
+                                                                  GradientType
+                                                                      .linear,
                                                             ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
-                                                    },
-                                                    text: FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      'fe78pha9' /* Post Comment */,
+                                                          ),
+                                                        ].divide(SizedBox(
+                                                            width: 5.0)),
+                                                      ),
                                                     ),
-                                                    options: FFButtonOptions(
-                                                      padding:
-                                                          EdgeInsets.all(0.0),
-                                                      iconAlignment:
-                                                          IconAlignment.start,
-                                                      iconPadding:
-                                                          EdgeInsets.all(0.0),
-                                                      color: Color(0x006F61EF),
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                font:
-                                                                    GoogleFonts
-                                                                        .inter(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .fontStyle,
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              -1.0, 0.0),
+                                                      child: FFButtonWidget(
+                                                        onPressed: () async {
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            enableDrag: false,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () {
+                                                                    FocusScope.of(
+                                                                            context)
+                                                                        .unfocus();
+                                                                    FocusManager
+                                                                        .instance
+                                                                        .primaryFocus
+                                                                        ?.unfocus();
+                                                                  },
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
+                                                                    child:
+                                                                        CommentbottomsheetWidget(
+                                                                      commentparameter:
+                                                                          listViewPostsRecord,
+                                                                    ),
+                                                                  ),
                                                                 ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .alternate,
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontStyle,
-                                                              ),
-                                                      elevation: 0.0,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              0.0),
-                                                      hoverTextColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
+                                                              );
+                                                            },
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
+                                                        },
+                                                        text:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'fe78pha9' /* Post Comment */,
+                                                        ),
+                                                        options:
+                                                            FFButtonOptions(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  0.0),
+                                                          iconAlignment:
+                                                              IconAlignment
+                                                                  .start,
+                                                          iconPadding:
+                                                              EdgeInsets.all(
+                                                                  0.0),
+                                                          color:
+                                                              Color(0x006F61EF),
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .inter(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                          elevation: 0.0,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      0.0),
+                                                          hoverTextColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                        ),
+                                                      ),
                                                     ),
-                                                  ),
+                                                  ].divide(
+                                                      SizedBox(width: 13.0)),
                                                 ),
-                                              ].divide(SizedBox(width: 13.0)),
-                                            ),
+                                              ),
+                                            ].divide(SizedBox(height: 10.0)),
                                           ),
-                                        ].divide(SizedBox(height: 10.0)),
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                },
+                                    );
+                                  },
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                      );
-                    },
+                            );
+                          },
+                        );
+                      },
+                    ),
                   ),
                 ),
-                Container(
-                  constraints: BoxConstraints(
-                    maxHeight: double.infinity,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Color(0x00FFFFFF),
-                  ),
-                  child: FlutterFlowAdBanner(
-                    showsTestAd: false,
-                    androidAdUnitID: 'ca-app-pub-3775563033100143/2176052830',
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
