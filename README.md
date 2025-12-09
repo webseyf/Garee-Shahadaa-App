@@ -14,11 +14,6 @@ Garee Shahada is a mobile app built using **FlutterFlow** and **Flutter**, desig
 
 ---
 
-## Screenshots
-
-*(Add screenshots of your app here, optional)*
-
----
 
 ## Getting Started
 
@@ -69,6 +64,7 @@ Custom Functions: Any custom functions are located under lib/custom_code and int
 
 Contributing
 Contributions are welcome! Please submit pull requests or open issues for bug fixes and feature requests.
+##0942435009 / seyfstreamline.com / seyfadinabdela42@gmail.com
 
 License
 This project is licensed under the MIT License.
