@@ -45,7 +45,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="gareeshahaadaa" android:host="gareeshahaadaa.com" />
+                <data android:scheme="gareeshahada" android:host="gareeshahada.com" />
             </intent-filter>
 
         </activity>
