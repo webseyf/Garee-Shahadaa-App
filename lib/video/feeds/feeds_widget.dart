@@ -90,86 +90,6 @@ class _FeedsWidgetState extends State<FeedsWidget> {
               ),
             ),
           ),
-          appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
-            automaticallyImplyLeading: false,
-            leading: Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                child: Container(
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.asset(
-                    'assets/images/dreamina-2025-10-27-2824-try_to_regenrate_this_image_in_best_way,....jpeg',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-            title: Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Text(
-                      FFLocalizations.of(context).getText(
-                        'vuiqtl22' /* Garee Shahadaa Feeds */,
-                      ),
-                      style:
-                          FlutterFlowTheme.of(context).headlineMedium.override(
-                                font: GoogleFonts.inter(
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .headlineMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .headlineMedium
-                                      .fontStyle,
-                                ),
-                                color: Colors.white,
-                                fontSize: 21.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .headlineMedium
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .headlineMedium
-                                    .fontStyle,
-                              ),
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(1.0, 0.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 11.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed(SettingsWidget.routeName);
-                        },
-                        child: Icon(
-                          Icons.settings_sharp,
-                          color: Colors.white,
-                          size: 35.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                ].divide(SizedBox(width: 0.0)),
-              ),
-            ),
-            actions: [],
-            centerTitle: true,
-          ),
           body: SafeArea(
             top: true,
             child: Stack(
@@ -178,9 +98,6 @@ class _FeedsWidgetState extends State<FeedsWidget> {
                   alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    constraints: BoxConstraints(
-                      maxHeight: 90.0,
-                    ),
                     decoration: BoxDecoration(
                       color: Color(0x00FFFFFF),
                     ),
@@ -430,7 +347,7 @@ class _FeedsWidgetState extends State<FeedsWidget> {
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     constraints: BoxConstraints(
-                      maxHeight: 75.0,
+                      maxHeight: 55.0,
                     ),
                     decoration: BoxDecoration(
                       color: Color(0x00FFFFFF),

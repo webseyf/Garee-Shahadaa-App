@@ -5,7 +5,7 @@
 
 
     <application
-        android:label="Garee Shahada"
+        android:label="Garee Shahaadaa"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
@@ -45,7 +45,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="gareeshahada" android:host="gareeshahada.com" />
+                <data android:scheme="gareeshahaadaa" android:host="gareeshahaadaa.com" />
             </intent-filter>
 
         </activity>

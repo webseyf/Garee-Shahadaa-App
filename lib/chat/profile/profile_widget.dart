@@ -183,6 +183,27 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   ),
                         ),
                       ),
+                      AuthUserStreamWidget(
+                        builder: (context) => Text(
+                          currentPhoneNumber,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    font: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 18.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                        ),
+                      ),
                     ].divide(SizedBox(height: 5.0)),
                   ),
                 ),

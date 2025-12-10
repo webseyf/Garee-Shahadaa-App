@@ -96,8 +96,8 @@ class _EmptyMessageWidgetState extends State<EmptyMessageWidget> {
           ),
           Text(
             FFLocalizations.of(context).getText(
-              '1rxbgzef' /* You didn't connected wit
-ur fr... */
+              '1rxbgzef' /* You didn't connected with
+your... */
               ,
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -106,7 +106,7 @@ ur fr... */
                     fontStyle:
                         FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                   ),
-                  color: FlutterFlowTheme.of(context).primary,
+                  color: FlutterFlowTheme.of(context).alternate,
                   fontSize: 20.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w500,

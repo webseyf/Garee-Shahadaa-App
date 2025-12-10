@@ -84,7 +84,7 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-    userStream = gareeShahadaFirebaseUserStream()
+    userStream = gareeShahaadaaFirebaseUserStream()
       ..listen((user) {
         _appStateNotifier.update(user);
       });
@@ -116,7 +116,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Garee Shahada',
+      title: 'Garee Shahaadaa',
       scrollBehavior: MyAppScrollBehavior(),
       localizationsDelegates: [
         FFLocalizationsDelegate(),

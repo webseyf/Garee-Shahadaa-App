@@ -140,9 +140,12 @@ class _RelaxWidgetState extends State<RelaxWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                FlutterFlowAdBanner(
-                  showsTestAd: false,
-                  androidAdUnitID: 'ca-app-pub-3940256099942544/9214589741',
+                Align(
+                  alignment: AlignmentDirectional(0.0, -1.0),
+                  child: FlutterFlowAdBanner(
+                    showsTestAd: false,
+                    androidAdUnitID: 'ca-app-pub-3940256099942544/9214589741',
+                  ),
                 ),
                 Padding(
                   padding:

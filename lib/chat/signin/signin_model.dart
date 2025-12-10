@@ -52,6 +52,10 @@ class SigninModel extends FlutterFlowModel<SigninWidget> {
     return null;
   }
 
+  // State field(s) for Yourphone widget.
+  FocusNode? yourphoneFocusNode;
+  TextEditingController? yourphoneTextController;
+  String? Function(BuildContext, String?)? yourphoneTextControllerValidator;
   // State field(s) for password_Create widget.
   FocusNode? passwordCreateFocusNode;
   TextEditingController? passwordCreateTextController;
@@ -140,6 +144,9 @@ class SigninModel extends FlutterFlowModel<SigninWidget> {
 
     emailAddressCreateFocusNode?.dispose();
     emailAddressCreateTextController?.dispose();
+
+    yourphoneFocusNode?.dispose();
+    yourphoneTextController?.dispose();
 
     passwordCreateFocusNode?.dispose();
     passwordCreateTextController?.dispose();

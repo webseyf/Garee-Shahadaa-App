@@ -568,6 +568,20 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
               showsTestAd: false,
               androidAdUnitID: 'ca-app-pub-3940256099942544/9214589741',
             ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 33.0, 0.0, 0.0),
+              child: FlutterFlowAdBanner(
+                showsTestAd: false,
+                androidAdUnitID: 'ca-app-pub-3940256099942544/9214589741',
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 0.0),
+              child: FlutterFlowAdBanner(
+                showsTestAd: false,
+                androidAdUnitID: 'ca-app-pub-3940256099942544/9214589741',
+              ),
+            ),
           ].divide(SizedBox(height: 13.0)),
         ),
       ),

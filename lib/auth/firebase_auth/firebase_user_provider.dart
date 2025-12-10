@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class GareeShahadaFirebaseUser extends BaseAuthUser {
-  GareeShahadaFirebaseUser(this.user);
+class GareeShahaadaaFirebaseUser extends BaseAuthUser {
+  GareeShahaadaaFirebaseUser(this.user);
   User? user;
   bool get loggedIn => user != null;
 
@@ -59,17 +59,17 @@ class GareeShahadaFirebaseUser extends BaseAuthUser {
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
   static BaseAuthUser fromFirebaseUser(User? user) =>
-      GareeShahadaFirebaseUser(user);
+      GareeShahaadaaFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> gareeShahadaFirebaseUserStream() => FirebaseAuth.instance
+Stream<BaseAuthUser> gareeShahaadaaFirebaseUserStream() => FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = GareeShahadaFirebaseUser(user);
+        currentUser = GareeShahaadaaFirebaseUser(user);
         return currentUser!;
       },
     );

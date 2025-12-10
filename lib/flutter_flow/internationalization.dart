@@ -200,7 +200,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tr': 'Aşağıdaki formu doldurarak başlayalım.',
     },
     'mtmxxlu4': {
-      'en': 'Name',
+      'en': 'Username with out space',
       'am': 'ስም',
       'ar': 'اسم',
       'tr': 'İsim',
@@ -210,6 +210,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'am': 'ኢሜይል',
       'ar': 'بريد إلكتروني',
       'tr': 'E-posta',
+    },
+    'h9vb72dn': {
+      'en': 'Your phone number',
+      'am': 'ስም',
+      'ar': 'اسم',
+      'tr': 'İsim',
     },
     'eqfv6q5m': {
       'en': 'Password',
@@ -235,18 +241,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'الرجاء اختيار خيار من القائمة المنسدلة',
       'tr': 'Lütfen açılır menüden bir seçenek seçin',
     },
-    'nw9mqbdx': {
-      'en': 'Phone number is required',
-      'am': 'ስልክ ቁጥር ያስፈልጋል',
-      'ar': 'رقم الهاتف مطلوب',
-      'tr': 'Telefon numarası gereklidir',
-    },
-    '2ei994iz': {
-      'en': 'Please choose an option from the dropdown',
-      'am': 'እባክዎ ከተቆልቋዩ ውስጥ አንድ አማራጭ ይምረጡ',
-      'ar': 'الرجاء اختيار خيار من القائمة المنسدلة',
-      'tr': 'Lütfen açılır menüden bir seçenek seçin',
-    },
     'oviiwfvm': {
       'en': 'Email is required',
       'am': 'ኢሜል ያስፈልጋል',
@@ -258,6 +252,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'am': 'እባክዎ ከተቆልቋዩ ውስጥ አንድ አማራጭ ይምረጡ',
       'ar': 'الرجاء اختيار خيار من القائمة المنسدلة',
       'tr': 'Lütfen açılır menüden bir seçenek seçin',
+    },
+    '4ogkjxjf': {
+      'en': 'Did you entered correct phone number?',
+      'am': '',
+      'ar': '',
+      'tr': '',
+    },
+    'ghlmbhnd': {
+      'en': 'Please choose an option from the dropdown',
+      'am': '',
+      'ar': '',
+      'tr': '',
     },
     'lvkd8bmi': {
       'en': 'Password is required',
@@ -639,15 +645,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tr': 'Garee Shahadaa Relax',
     },
   },
-  // Feeds
-  {
-    'vuiqtl22': {
-      'en': 'Garee Shahadaa Feeds',
-      'am': 'Garee Shahadaa ምግቦች',
-      'ar': 'جاري شهادة فيدز',
-      'tr': 'Garee Shahadaa Feeds',
-    },
-  },
   // videoplayer
   {
     '0c5frluo': {
@@ -659,12 +656,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // AboutUs
   {
-    'b8rnxe5x': {
-      'en': 'Update Your phone and Name',
-      'am': 'ሻሃዳ ሪከርድስ Facebook',
-      'ar': 'تسجيلات الشهادة فيسبوك',
-      'tr': 'Şehadet Kayıtları Facebook',
-    },
     'lgcon3dq': {
       'en': 'مرحباً بكم في',
       'am': 'مرحبات بكم في',
@@ -695,6 +686,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '\"ادْعُ إِلَى سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ\" - القرآن 16:125',
       'tr':
           '\\\"Rabbinin yoluna hikmetle ve güzel öğütle davet et\\\" - Kur\'an 16:125',
+    },
+    'b8rnxe5x': {
+      'en': 'Update Your phone and Name',
+      'am': 'ሻሃዳ ሪከርድስ Facebook',
+      'ar': 'تسجيلات الشهادة فيسبوك',
+      'tr': 'Şehadet Kayıtları Facebook',
+    },
+    'jxav7j10': {
+      'en': 'Change Your Settings',
+      'am': 'ሻሃዳ ሪከርድስ Facebook',
+      'ar': 'تسجيلات الشهادة فيسبوك',
+      'tr': 'Şehadet Kayıtları Facebook',
     },
     'b5bnxce0': {
       'en': 'من نحن',
@@ -781,37 +784,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'tr': 'Etiyopya Ticaret Bankası',
     },
     'q26hizhk': {
-      'en': '10000 XXXXXXXXX',
+      'en': '1000 564 884 557',
       'am': '10000 XXXXXXXXX',
       'ar': '10000 XXXXXXXXX',
       'tr': '10000 XXXXXXXXX',
     },
     'x9wb8ul3': {
-      'en': 'Garee Shahadaa Oromia',
-      'am': 'ጋሬ ሻሃዳ ኦሮሚያ',
-      'ar': 'جاري شهادة أوروميا',
-      'tr': 'Garee Shahadaa Oromia',
-    },
-    '3jh6s2ci': {
-      'en': 'CBE',
-      'am': 'ንግድ ባንክ',
-      'ar': 'وسام الإمبراطورية البريطانية',
-      'tr': 'CBE',
-    },
-    'ygkwgmv5': {
-      'en': 'Commercial Bank of Ethiopia',
-      'am': 'የኢትዮጵያ ንግድ ባንክ',
-      'ar': 'البنك التجاري الإثيوبي',
-      'tr': 'Etiyopya Ticaret Bankası',
-    },
-    'sqw2m27n': {
-      'en': '10000 XXXXXXXXX',
-      'am': '10000 XXXXXXXXX',
-      'ar': '10000 XXXXXXXXX',
-      'tr': '10000 XXXXXXXXX',
-    },
-    'vzce2dvi': {
-      'en': 'Garee Shahadaa Oromia',
+      'en': 'Behayilu Belachew (Ustaz Ferhan Name malet new )',
       'am': 'ጋሬ ሻሃዳ ኦሮሚያ',
       'ar': 'جاري شهادة أوروميا',
       'tr': 'Garee Shahadaa Oromia',
@@ -1089,7 +1068,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '1rxbgzef': {
       'en':
-          'You didn\'t connected wit\nur friends Click on + icon at \ntop and serch for ur friend',
+          'You didn\'t connected with\nyour friends yet, Click on\n+ icon at top \nand serch for ur friend',
       'am': '',
       'ar': '',
       'tr': '',
