@@ -98,6 +98,9 @@ class _FeedsWidgetState extends State<FeedsWidget> {
                   alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
+                    constraints: BoxConstraints(
+                      maxHeight: 55.0,
+                    ),
                     decoration: BoxDecoration(
                       color: Color(0x00FFFFFF),
                     ),
@@ -113,7 +116,7 @@ class _FeedsWidgetState extends State<FeedsWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 0.0, 55.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                   child: Container(
                     height: double.infinity,
                     decoration: BoxDecoration(),
@@ -338,27 +341,6 @@ class _FeedsWidgetState extends State<FeedsWidget> {
                             },
                           );
                         },
-                      ),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 1.0),
-                  child: Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    constraints: BoxConstraints(
-                      maxHeight: 55.0,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Color(0x00FFFFFF),
-                    ),
-                    alignment: AlignmentDirectional(0.0, 1.0),
-                    child: Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
-                      child: FlutterFlowAdBanner(
-                        showsTestAd: false,
-                        androidAdUnitID:
-                            'ca-app-pub-3940256099942544/9214589741',
                       ),
                     ),
                   ),

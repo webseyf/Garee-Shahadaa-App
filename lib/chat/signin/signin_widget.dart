@@ -1425,7 +1425,7 @@ class _SigninWidgetState extends State<SigninWidget>
                                                                       }
 
                                                                       context.goNamedAuth(
-                                                                          PostlistsWidget
+                                                                          FeedsWidget
                                                                               .routeName,
                                                                           context
                                                                               .mounted);
@@ -1515,7 +1515,7 @@ class _SigninWidgetState extends State<SigninWidget>
                                                                               return;
                                                                             }
 
-                                                                            context.goNamedAuth(PostlistsWidget.routeName,
+                                                                            context.goNamedAuth(FeedsWidget.routeName,
                                                                                 context.mounted);
                                                                           },
                                                                           text:
@@ -2245,7 +2245,7 @@ class _SigninWidgetState extends State<SigninWidget>
                                                                 }
 
                                                                 context.goNamedAuth(
-                                                                    PostlistsWidget
+                                                                    FeedsWidget
                                                                         .routeName,
                                                                     context
                                                                         .mounted);
@@ -2346,7 +2346,7 @@ class _SigninWidgetState extends State<SigninWidget>
                                                                       }
 
                                                                       context.goNamedAuth(
-                                                                          PostlistsWidget
+                                                                          FeedsWidget
                                                                               .routeName,
                                                                           context
                                                                               .mounted);

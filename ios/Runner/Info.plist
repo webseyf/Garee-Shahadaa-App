@@ -61,7 +61,8 @@
 	<true/>
 
 
-
+	<key>PermissionGroupNotification</key>
+    <string>Allow us to show notification</string>
 
 
 

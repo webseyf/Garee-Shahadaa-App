@@ -156,7 +156,7 @@ class _PostlistsWidgetState extends State<PostlistsWidget> {
                 alignment: AlignmentDirectional(0.0, -1.0),
                 child: Container(
                   constraints: BoxConstraints(
-                    maxHeight: 65.0,
+                    maxHeight: 60.0,
                   ),
                   decoration: BoxDecoration(
                     color: Color(0x00FFFFFF),
@@ -169,7 +169,7 @@ class _PostlistsWidgetState extends State<PostlistsWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: Container(
                   height: double.infinity,
                   decoration: BoxDecoration(),
@@ -664,7 +664,7 @@ class _PostlistsWidgetState extends State<PostlistsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .alternate,
-                                                                size: 25.0,
+                                                                size: 23.0,
                                                               ),
                                                             ),
                                                           ),
@@ -789,7 +789,7 @@ class _PostlistsWidgetState extends State<PostlistsWidget> {
                                                                           color:
                                                                               FlutterFlowTheme.of(context).alternate,
                                                                           fontSize:
-                                                                              20.0,
+                                                                              19.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:

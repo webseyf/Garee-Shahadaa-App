@@ -1287,6 +1287,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Miscellaneous
   {
+    'iggtb5db': {
+      'en': 'Allow us to show notification',
+      'am': '',
+      'ar': '',
+      'tr': '',
+    },
     'no9si425': {
       'en': '',
       'am': '',
